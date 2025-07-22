@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circular Color Inversion Effect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+            height: 300vh; /* Make it scrollable */
+        }
+
+        /* Main container with background image */
+        .main-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Content overlay */
+        .content-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .main-title {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Scrollable content section */
+        .scrollable-content {
+            position: relative;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 200vh;
+            padding: 80px 20px;
+            z-index: 1;
+        }
+
+        .content-section {
+            max-width: 800px;
+            margin: 0 auto 100px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .content-section h2 {
+            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .content-section p {
+            color: #555;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .track-list {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        .track {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .track:last-child {
+            border-bottom: none;
+        }
+
+        .track-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .track-artist {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* Inversion circles - positioned absolutely and follow scroll */
+        .inversion-circle {
+            position: fixed;
+            border-radius: 50%;
+            backdrop-filter: invert(100%) contrast(1.2);
+            -webkit-backdrop-filter: invert(100%) contrast(1.2);
+            pointer-events: none;
+            z-index: 1000;
+            transition: transform 0.1s ease-out;
+            width: 150px;
+            height: 150px;
+        }
+
+
+        .circle-1 {
+            width: 400px;
+            height: 400px;
+        }
+
+        .circle-2 {
+            width: 600px;
+            height: 600px;
+        }
+
+        .circle-3 {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* Additional content for more scrolling */
+        .additional-content {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .additional-content h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .additional-content p {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .demo-card {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: left;
+        }
+
+        .demo-card h3 {
+            margin-bottom: 15px;
+            color: #5a67d8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main hero section with background image -->
+    <div class="main-container">
+        <div class="content-overlay">
+            <h1 class="main-title">NEON DREAMS</h1>
+            <p class="subtitle">Experience the color inversion effect</p>
+            <p>Scroll down to see the magic happen ↓</p>
+        </div>
+    </div>
+
+    <!-- Scrollable content with multiple sections -->
+    <div class="scrollable-content">
+        <div class="content-section">
+            <h2>Music Collection</h2>
+            <p>Welcome to our digital music showcase. As you scroll through this page, you'll notice circular areas that invert all the colors behind them, creating a unique visual effect that responds to your scrolling.</p>
+            
+            <div class="track-list">
+                <h3 style="color: #4facfe; margin-bottom: 20px; text-align: center;">DISC 1 - Electronic Vibes</h3>
+                
+                <div class="track">
+                    <div class="track-title">Neon Lights</div>
+                    <div class="track-artist">Digital Dreams ft. Luna Wave</div>
+                </div>
+                
+                <div class="track">
+                    <div class="track-title">Synthetic Paradise</div>
+                    <div class="track-artist">Cyber Echo</div>
+                </div>
+                
+                <div class="track">
+                    <div class="track-title">Electric Pulse</div>
+                    <div class="track-artist">Voltage City</div>
+                </div>
+                
+                <div class="track">
+                    <div class="track-title">Digital Horizon</div>
+                    <div class="track-artist">Future Bass Collective</div>
+                </div>
+                
+                <div class="track">
+                    <div class="track-title">Midnight Code</div>
+                    <div class="track-artist">Binary Beats</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>About The Effect</h2>
+            <p>The circular inversion effect you're experiencing is created using CSS backdrop filters combined with JavaScript scroll detection. Each circle follows your scroll position and inverts the colors of everything behind it.</p>
+            <p>This creates a dynamic, interactive visual experience where the content literally changes color as you navigate through the page. The circles move at different speeds and directions, creating parallax-like motion.</p>
+            <p>The effect works on any content - text, images, backgrounds, and other elements all get inverted within the circular boundaries.</p>
+        </div>
+    </div>
+
+    <!-- Additional colorful section -->
+    <div class="additional-content">
+        <h2>More Content Below</h2>
+        <p>Keep scrolling to see how the inversion circles affect different colored backgrounds and content types.</p>
+        
+        <div class="demo-grid">
+            <div class="demo-card">
+                <h3>Card One</h3>
+                <p>This card has a light background. Watch how it looks when a circle passes over it!</p>
+            </div>
+            
+            <div class="demo-card">
+                <h3>Card Two</h3>
+                <p>The inversion effect creates interesting contrasts with different color schemes.</p>
+            </div>
+            
+            <div class="demo-card">
+                <h3>Card Three</h3>
+                <p>Every element on the page - text, backgrounds, borders - gets inverted within the circles.</p>
+            </div>
+            
+            <div class="demo-card">
+                <h3>Card Four</h3>
+                <p>The smooth animation makes the effect feel natural and engaging as you scroll.</p>
+            </div>
+        </div>
+    </div>
+
+        <!-- Inversion circles -->
+    <div class="inversion-circle circle-0"></div>
+    <div class="inversion-circle circle-1"></div>
+    <div class="inversion-circle circle-2"></div>
+    <div class="inversion-circle circle-3"></div>
+    <div class="inversion-circle circle-4"></div>
+
+    <script>
+        const numberOfCircles = Math.floor(document.body.scrollHeight / 300); // One circle per ~300px
+        const circleSpacing = document.body.scrollHeight / numberOfCircles;
+        const circleSize = 150;
+
+        for (let i = 0; i < numberOfCircles; i++) {
+            const circle = document.createElement('div');
+            circle.classList.add('inversion-circle');
+
+            // Optional: assign a class like `circle-0`, `circle-1`, etc.
+            circle.classList.add(`circle-${i}`);
+
+            // Set size
+            circle.style.width = `${circleSize*3}px`;
+            circle.style.height = `${circleSize*3}px`;
+
+            // Position it vertically spaced down the page
+            const topPosition = i * circleSpacing;
+            circle.style.top = `${topPosition}px`;
+
+            // Alternate left/right
+            const isLeft = i % 2 === 0;
+            const sideOffset = 100; // distance from the edge
+            const leftPosition = isLeft ? sideOffset : window.innerWidth - circleSize - sideOffset*4;
+            circle.style.left = `${leftPosition}px`;
+
+            // Make it absolutely positioned
+            circle.style.position = 'absolute';
+
+            document.body.appendChild(circle);
+        }
+    </script>
+
+
+</body>
+</html>

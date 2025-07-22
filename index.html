@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pax Cruento</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <audio id="navSound" src="tone.wav" preload="auto"></audio>
+    
+    <!-- Header -->
+    <header class="header">
+        <img src="logo.png" alt="Pax Cruento Logo" class="logo">
+        <img src="AdAstra.png" alt="Ad Astra Logo" class="logo">
+    </header>
+
+    <!-- Right Navigation -->
+    <nav class="nav-right" id="rightNav">
+        <button class="close-btn" onclick="toggleRightWithSound()">×</button>
+        <ul class="nav-links">
+            <!-- Former left nav items -->
+            <li><a href="#">About Me</a></li>
+            <li><a href="#">Archive</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">Timeline</a></li>
+            
+            <!-- Original right nav items -->
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Social Media</a></li>
+            <li><a href="#">Resources</a></li>
+            <li><a href="#">Links</a></li>
+        </ul>
+    </nav>
+
+    <!-- Navigation Toggle Buttons -->
+    <button class="nav-toggle-right" onclick="toggleRightWithSound()">←</button>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="preview-box">
+            <h2>Rambling</h2>
+            <p>Thoughts and musings</p>
+            <div class="preview-image">
+                <a href="rambling.html" target="_blank">
+                    <img src="r-preview.png" alt="Preview of Rambling Content" class="preview-image">
+                </a>
+            </div>
+        </div>
+        
+        <div class="preview-box">
+            <h2>Technology</h2>
+            <p>On practical tech and software</p>
+            <div class="preview-image">
+                <a href="cyberpunk-website.html" target="_blank">
+                    <div class="cyberpunk-preview">
+                        <div class="mini-logo">ネオン NEON BLACK</div>
+                        <div class="mini-text">CYBER PRESENT<br>サイバーパンク XX25</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="preview-box">
+            <h2>Writing</h2>
+            <p>Fantasy, Science Fiction and the nonsense theories.</p>
+            <div class="preview-image">
+                <a href="wizards-lair-website.html" target="_blank">
+                    <div class="wizard-preview">
+                        <div class="orb"></div>
+                        <div class="mini-logo">❧ Librarium Nouveau ❧</div>
+                        <div class="mini-text">Tales to Astound and Illuminate!</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="preview-box">
+            <h2>Videos</h2>
+            <p>My Youtube Channel. Nothing much happens.</p>
+            <div class="preview-image">
+                <a href="https://www.youtube.com/channel/UCOEwfuR3JTzWJAXQRGH7jnA" target="_blank">
+                    <img src="yt.png" alt="Preview of YouTube Channel" class="preview-image">
+                </a>
+            </div>
+        </div>
+        
+        <div class="preview-box">
+            <h2>Projects</h2>
+            <p>UI/UX design oriented, hopefully games soon</p>
+            <div class="preview-image">
+                <a href="frutiger-aero-website.html" target="_blank">
+                    <div class="frutiger-preview">
+                        <div class="glass-element"></div>
+                        <div class="mini-logo">AeroUI</div>
+                        <div class="mini-text">Experience the Glossy Future<br>Frutiger Aero Revival</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="preview-box">
+            <h2>CYOA</h2>
+            <p>Where you'll find my CYOA games</p>
+            <div class="preview-image">
+                <div class="cyoa-preview">
+                    Choose Your Own Adventure
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog Box -->
+            <div class="preview-box blog-box">
+                <h2>Hello, you!</h2>
+                <div id="blog-content" class="blog-content">
+                <!-- blog content loaded here -->
+                </div>
+            </div>
+
+        <!-- Chat Widget: uncomment when ready to post-->
+            <!--<div style="width: 250px; height: 350px;">
+                <script id="cid0020000413828945566" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js">
+                {"handle":"alasporci","arch":"js","styles":{"a":"CC0000","b":100,"c":"FFFFFF","d":"FFFFFF","k":"CC0000","l":"CC0000","m":"CC0000","n":"FFFFFF","p":"10","q":"CC0000","r":100,"fwtickm":1}}
+                </script>
+            </div> -->          
+    </main>
+
+    <script>
+        // Navigation sound function
+        function playNavSound() {
+            const sound = document.getElementById('navSound');
+            sound.currentTime = 0;
+            sound.play();
+        }
+    
+        function toggleLeftWithSound() {
+            playNavSound();
+            document.getElementById('leftNav').classList.toggle('open');
+        }
+    
+        function toggleRightWithSound() {
+            playNavSound();
+            document.getElementById('rightNav').classList.toggle('open');
+        }
+
+        // Load text file content
+        async function loadBlogContent() {
+            try {
+                const response = await fetch('/texts/example.txt');
+                const text = await response.text();
+                const paragraphs = text.split('\n\n').filter(p => p.trim());
+                const contentHtml = paragraphs
+                    .map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`)
+                    .join('');
+                document.getElementById('blog-content').innerHTML = contentHtml;
+            } catch (error) {
+                console.error('Error loading blog content:', error);
+                document.getElementById('blog-content').innerHTML = '<p>Error loading content. Please check back later!</p>';
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadBlogContent();
+        });
+    </script>
+</body>
+</html>

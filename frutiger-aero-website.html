@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frutiger Aero Style Website</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #e0f2ff 0%, #a6d9ff 100%);
+            color: #2c5e8c;
+            height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 15px 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1), 
+                        inset 0 1px 1px rgba(255, 255, 255, 0.9);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #53a6e1 0%, #2d7bc0 100%);
+            border-radius: 50%;
+            position: relative;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2),
+                        inset 0 -2px 2px rgba(0, 0, 0, 0.1),
+                        inset 0 2px 2px rgba(255, 255, 255, 0.5);
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .nav-links a {
+            color: #2c5e8c;
+            text-decoration: none;
+            font-weight: 500;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #1a4a7d;
+        }
+        
+        /* Hero Section */
+        .hero {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .hero-content {
+            flex: 1;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: #305f89;
+        }
+        
+        .hero-image {
+            flex: 1;
+            height: 300px;
+            background: linear-gradient(135deg, #7cc4ff 0%, #3f8ed3 100%);
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15),
+                        inset 0 -3px 5px rgba(0, 0, 0, 0.1),
+                        inset 0 3px 5px rgba(255, 255, 255, 0.5);
+            overflow: hidden;
+        }
+        
+        .reflection {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to bottom, 
+                rgba(255, 255, 255, 0.5) 0%, 
+                rgba(255, 255, 255, 0.2) 50%, 
+                rgba(255, 255, 255, 0) 100%);
+            border-radius: 20px 20px 0 0;
+        }
+        
+        /* Feature Cards */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08),
+                        inset 0 1px 1px rgba(255, 255, 255, 0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #53a6e1 0%, #2d7bc0 100%);
+            border-radius: 50%;
+            margin-bottom: 20px;
+            position: relative;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15),
+                        inset 0 -2px 3px rgba(0, 0, 0, 0.1),
+                        inset 0 2px 3px rgba(255, 255, 255, 0.5);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #2c5e8c;
+        }
+        
+        .feature-card p {
+            color: #4a7ba5;
+            line-height: 1.5;
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05),
+                        inset 0 1px 1px rgba(255, 255, 255, 0.9);
+        }
+        
+        footer p {
+            color: #4a7ba5;
+            margin: 0;
+        }
+        
+        /* Button */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #53a6e1 0%, #2d7bc0 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15),
+                        inset 0 -2px 2px rgba(0, 0, 0, 0.1),
+                        inset 0 2px 2px rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:hover {
+            background: linear-gradient(135deg, #65b2e9 0%, #3989d1 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2),
+                        inset 0 -2px 2px rgba(0, 0, 0, 0.1),
+                        inset 0 2px 2px rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15),
+                        inset 0 -1px 1px rgba(0, 0, 0, 0.1),
+                        inset 0 1px 1px rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Frutiger Aero-style dock */
+        .dock {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 15px;
+            max-width: 500px;
+            margin: 0 auto 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1),
+                        inset 0 1px 1px rgba(255, 255, 255, 0.9);
+        }
+        
+        .dock-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #53a6e1 0%, #2d7bc0 100%);
+            border-radius: 12px;
+            position: relative;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15),
+                        inset 0 -2px 2px rgba(0, 0, 0, 0.1),
+                        inset 0 2px 2px rgba(255, 255, 255, 0.5);
+            transition: transform 0.3s ease;
+        }
+        
+        .dock-icon:hover {
+            transform: translateY(-10px) scale(1.1);
+        }
+        
+        .dock-icon::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to bottom, 
+                rgba(255, 255, 255, 0.5) 0%, 
+                rgba(255, 255, 255, 0.2) 50%, 
+                rgba(255, 255, 255, 0) 100%);
+            border-radius: 12px 12px 0 0;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <div class="logo-text">AeroUI</div>
+            </div>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">Features</a>
+                <a href="#">Gallery</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </div>
+        </nav>
+        
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Experience the Glossy Future</h1>
+                <p>Welcome to the world of Frutiger Aero design. Immerse yourself in reflective surfaces, smooth gradients, and a clean interface that defined an era of digital aesthetics.</p>
+                <a href="#" class="btn">Explore More</a>
+            </div>
+            <div class="hero-image">
+                <div class="reflection"></div>
+            </div>
+        </section>
+        
+        <div class="dock">
+            <div class="dock-icon"></div>
+            <div class="dock-icon"></div>
+            <div class="dock-icon"></div>
+            <div class="dock-icon"></div>
+            <div class="dock-icon"></div>
+        </div>
+        
+        <section class="features">
+            <div class="feature-card">
+                <div class="feature-icon"></div>
+                <h3>Glossy Finishes</h3>
+                <p>Sleek, shiny surfaces with reflections that give depth and dimension to every element.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"></div>
+                <h3>Smooth Gradients</h3>
+                <p>Flowing color transitions that create a sense of depth and visual interest.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"></div>
+                <h3>Clean Interface</h3>
+                <p>Minimal, user-friendly design that prioritizes clarity and ease of use.</p>
+            </div>
+        </section>
+        
+        <footer>
+            <p>© 2025 Frutiger Aero Revival. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

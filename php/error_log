@@ -1,0 +1,21 @@
+[11-Oct-2020 17:33:23 UTC] PHP Notice:  Undefined index: emailSubject in /home/q4ugonpveqkw/public_html/themekings.net/themestk/gamers/zoid/php/simpleContactForm.php on line 9
+[11-Oct-2020 17:33:23 UTC] PHP Notice:  Undefined index: emailSender in /home/q4ugonpveqkw/public_html/themekings.net/themestk/gamers/zoid/php/simpleContactForm.php on line 10
+[11-Oct-2020 17:33:23 UTC] PHP Notice:  Undefined variable: emailContent in /home/q4ugonpveqkw/public_html/themekings.net/themestk/gamers/zoid/php/simpleContactForm.php on line 29
+[26-Dec-2020 00:59:14 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/q4ugonpveqkw/public_html/themekings.net/themestk/gamers/zoid/php/simpleContactForm.php on line 16
+[26-Dec-2020 00:59:14 UTC] PHP Notice:  Undefined variable: emailContent in /home/q4ugonpveqkw/public_html/themekings.net/themestk/gamers/zoid/php/simpleContactForm.php on line 17
+[26-Dec-2020 00:59:14 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/q4ugonpveqkw/public_html/themekings.net/themestk/gamers/zoid/php/simpleContactForm.php on line 16
+[26-Dec-2020 00:59:14 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/q4ugonpveqkw/public_html/themekings.net/themestk/gamers/zoid/php/simpleContactForm.php on line 16
+[26-Dec-2020 00:59:14 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/q4ugonpveqkw/public_html/themekings.net/themestk/gamers/zoid/php/simpleContactForm.php on line 16
+[26-Dec-2020 00:59:14 UTC] PHP Notice:  Undefined offset: 1 in /home/q4ugonpveqkw/public_html/themekings.net/themestk/gamers/zoid/php/simpleContactForm.php on line 15
+[26-Dec-2020 00:59:14 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/q4ugonpveqkw/public_html/themekings.net/themestk/gamers/zoid/php/simpleContactForm.php on line 16
+[26-Dec-2020 00:59:14 UTC] PHP Notice:  Undefined offset: 1 in /home/q4ugonpveqkw/public_html/themekings.net/themestk/gamers/zoid/php/simpleContactForm.php on line 15
+[26-Dec-2020 00:59:14 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/q4ugonpveqkw/public_html/themekings.net/themestk/gamers/zoid/php/simpleContactForm.php on line 16
+[01-Mar-2022 11:32:53 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/q4ugonpveqkw/public_html/themekings.net/themestk/gamers/zoid/php/simpleContactForm.php on line 16
+[01-Mar-2022 11:32:53 UTC] PHP Notice:  Undefined variable: emailContent in /home/q4ugonpveqkw/public_html/themekings.net/themestk/gamers/zoid/php/simpleContactForm.php on line 17
+[01-Mar-2022 11:32:53 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/q4ugonpveqkw/public_html/themekings.net/themestk/gamers/zoid/php/simpleContactForm.php on line 16
+[01-Mar-2022 11:32:54 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/q4ugonpveqkw/public_html/themekings.net/themestk/gamers/zoid/php/simpleContactForm.php on line 16
+[01-Mar-2022 11:32:54 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/q4ugonpveqkw/public_html/themekings.net/themestk/gamers/zoid/php/simpleContactForm.php on line 16
+[01-Mar-2022 11:32:54 UTC] PHP Notice:  Undefined offset: 1 in /home/q4ugonpveqkw/public_html/themekings.net/themestk/gamers/zoid/php/simpleContactForm.php on line 15
+[01-Mar-2022 11:32:54 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/q4ugonpveqkw/public_html/themekings.net/themestk/gamers/zoid/php/simpleContactForm.php on line 16
+[01-Mar-2022 11:32:54 UTC] PHP Notice:  Undefined offset: 1 in /home/q4ugonpveqkw/public_html/themekings.net/themestk/gamers/zoid/php/simpleContactForm.php on line 15
+[01-Mar-2022 11:32:54 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/q4ugonpveqkw/public_html/themekings.net/themestk/gamers/zoid/php/simpleContactForm.php on line 16
